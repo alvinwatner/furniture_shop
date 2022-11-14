@@ -22,6 +22,7 @@ class ProductCard extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.fitWidth,
               ),
+              //ADDING TIX-3 COMMENT
               Positioned(
                   top: 10,
                   left: 10,
