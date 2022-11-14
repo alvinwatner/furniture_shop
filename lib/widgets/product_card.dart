@@ -11,6 +11,7 @@ class ProductCard extends StatelessWidget {
       children: [
         // ADDING COMMENT
         ClipRRect(
+          // ADDING ANOTHER COMMENT
           borderRadius: const BorderRadius.vertical(top: Radius.circular(15.0)),
           child: AspectRatio(
             aspectRatio: 1.3,
