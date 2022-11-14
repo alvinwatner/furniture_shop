@@ -15,6 +15,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: const BorderRadius.vertical(top: Radius.circular(15.0)),
           child: AspectRatio(
             aspectRatio: 1.5,
+            // ADDING CHANGES HERE
             child: Stack(children: [
               Image.asset(
                 'assets/images/dummy1.png',
