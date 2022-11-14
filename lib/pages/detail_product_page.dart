@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class DetailProductPage extends StatelessWidget {
   static const routeName = 'detail-product';
@@ -34,7 +32,9 @@ class DetailProductPage extends StatelessWidget {
                 color: Colors.black,
               ),
               tooltip: 'Menu',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ), //IconButton
             actions: <Widget>[
               Container(
