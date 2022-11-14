@@ -37,7 +37,10 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset("assets/icons/menu.png"),
-                  Text("Home", style: TextStyle(fontWeight: FontWeight.w600,)),
+                  Text("Home",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      )),
                   Image.asset("assets/icons/search.png"),
                 ],
               ),
@@ -77,7 +80,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -90,22 +93,21 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: SizedBox(
-                // height: MediaQuery.of(context).size.height * 0.3,
-                child: GridView.count(
-                  mainAxisSpacing: 8.0,
-                  crossAxisSpacing: 8.0,
-
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  children: [
-                    ...[1, 2, 3, 4]
-                        .map(
-                          (e) => ProductCard(),
-                        )
-                        .toList()
-                  ],
-                ),
+              child: GridView.count(
+                mainAxisSpacing: 4.0,
+                childAspectRatio: MediaQuery.of(context).size.width /
+                    (MediaQuery.of(context).size.height / 1.6),
+                crossAxisSpacing: 8.0,
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(8.0),
+                crossAxisCount: 2,
+                children: [
+                  ...[1, 2, 3, 4]
+                      .map(
+                        (e) => const ProductCard(),
+                      )
+                      .toList()
+                ],
               ),
             )
           ],
@@ -122,29 +124,71 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 100,
-      height: 100,
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(8.0),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(15.0),
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(15.0)),
-              child: Image.asset(
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(15.0)),
+          child: AspectRatio(
+            aspectRatio: 1.2,
+            child: Stack(children: [
+              Image.asset(
                 'assets/images/dummy1.png',
-                fit: BoxFit.fill,
+                width: double.infinity,
+                fit: BoxFit.fitWidth,
               ),
-            ),
-          ),      
-        ],
-      ),
+              Positioned(
+                  top: 10,
+                  left: 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(8.0),
+                        ),
+                        color: Colors.white),
+                    padding: EdgeInsets.all(4.0),
+                    child: Icon(
+                      Icons.favorite_border_outlined,
+                      color: Colors.red,
+                    ),
+                  ))
+            ]),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(8.0),
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Stylish chair",
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("\$170",
+                      style: TextStyle(fontSize: 15, color: Colors.grey)),
+                  Row(
+                    children: const [
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                      ),
+                      Text("58",
+                          style: TextStyle(fontSize: 10, color: Colors.grey)),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }
