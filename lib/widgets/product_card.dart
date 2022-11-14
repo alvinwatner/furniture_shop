@@ -9,6 +9,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // ADDING COMMENT
         ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(15.0)),
           child: AspectRatio(
@@ -41,9 +42,9 @@ class ProductCard extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           width: double.infinity,
           decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0))
-          ),
+              color: Colors.white,
+              borderRadius:
+                  BorderRadius.vertical(bottom: Radius.circular(15.0))),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
